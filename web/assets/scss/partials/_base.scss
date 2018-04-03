@@ -1,0 +1,81 @@
+body {
+	color: $black;
+	font-family: $sans-serif;
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: $serif;
+}
+
+h1 {
+	font-size: 36px;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+h3 {
+	font-size: 14px;
+}
+
+// Forms
+#{$all-text-inputs} {
+  border: 1px solid $gray;
+  padding: 10px;
+}
+
+#{$all-text-inputs-focus},
+#{$all-text-inputs-hover},
+#{$all-text-inputs-active} {
+  border: 1px solid $red;
+}
+
+#{$all-buttons} {
+  background-color: $red2;
+  border: 1px solid $gray;
+  color: $gray;
+  padding: 10px;
+	border-radius: $buttons-border-radius;
+	width: 100%;
+
+}
+
+#{$all-buttons-focus},
+#{$all-buttons-hover},
+#{$all-buttons-active} {
+  background-color: $red1;
+  border-color: $gray;
+  color: $gray;
+}
+.span2{
+		width: 20%;
+}
+.row-fluid{
+	        background-image: linear-gradient(to bottom,#ffffff,#eeeeee);
+}
+nav {
+	display: block;
+	float: left;
+	width: 80%;
+	ul {
+		list-style: none;
+		padding: 20px;
+
+	}
+
+	li {
+		display: inline-block;
+	}
+
+	a {
+		padding: 0 10px;
+		text-decoration: none;
+		&:hover {
+			color: $red;
+		}
+
+	}
+}

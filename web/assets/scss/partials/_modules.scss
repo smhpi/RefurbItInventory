@@ -1,0 +1,65 @@
+.hero .overlay {
+	background: rgba($orange, .7);
+}
+
+.hero {
+	text-align: center;
+}
+
+.hero .wrap {
+	padding: 60px 0;
+}
+
+.feature img {
+	border-radius: $default-border-radius;
+//	@include size(100% auto);
+}
+
+.customer img {
+	border-radius: $default-border-radius;
+//	@include size(150px);
+}
+
+.login-main{
+		margin: 120px auto;
+		width: 350px;
+
+}
+.login-box{
+	background-color: white;
+	border-radius: $default-border-radius;
+
+	padding-bottom: 10px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.logo{
+
+	padding-top: 20px;
+	text-align: center;
+}
+.logo img{
+	width: 80%;
+	vertical-align: middle;
+	margin: 10px auto;
+}
+.form-fields{
+	position: relative;
+	display: table;
+  border-collapse: separate;
+	width: 100%;
+	margin: 10px auto;
+}
+.form-fields-input{
+	display: table-cell;
+	padding: 4px 8px;
+}
+.report{
+	display: block;
+	float: left;
+	width: 100%;
+}
+.row-report{
+	float: left;
+}

@@ -1,0 +1,4 @@
+/web/node_modules/*
+/build/web/node_modules/*
+/web/bower_components/*
+/build/web/bower_components/*
