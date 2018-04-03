@@ -21,11 +21,9 @@
         <form action="response.jsp">
             <strong>Select a subject:</strong>
             <select name="subject_id">
-                <c:forEach var="row" items="${subjects.rows}">
-                    <c:forEach var="column" items="${row}">
-                        <option value="${row.subject_id}">${row.name}</option>
-                    </c:forEach>
-                </c:forEach>
+                 <c:forEach var="row" items="${subjects.rows}">
+            <option value="${row.subject_id}">${row.name}</option>
+        </c:forEach>
             </select>  
             <input type="submit" value="Ok" name="submit"/>
         </form>
