@@ -1,9 +1,9 @@
-<a href="${pageContext.request.contextPath}/employeeTask">
-  Employee Task
+<a href="${pageContext.request.contextPath}/Inventory">
+  Inventory
 </a>
 ||
-<a href="${pageContext.request.contextPath}/managerTask">
-  Manager Task
+<a href="${pageContext.request.contextPath}/Orders">
+  Orders
 </a>
 ||
 <a href="${pageContext.request.contextPath}/userInfo">
