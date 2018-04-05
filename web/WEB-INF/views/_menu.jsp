@@ -1,5 +1,5 @@
 <header>
-  <div>
+
     <div class="row-fluid">
       <div class="span2">
         <img src="images/refurbit-logo.png" style="float:left;width:180px;padding-top:15px;padding-bottom:15px;margin:0px;">
@@ -7,26 +7,20 @@
       <nav>
       <ul>
           <li>
-              <a href="${pageContext.request.contextPath}/Inventory">
-                Inventory
+              <a href="${pageContext.request.contextPath}/product">
+                Products
               </a>
           </li>
 
           <li>
-              <a href="${pageContext.request.contextPath}/Orders">
+              <a href="${pageContext.request.contextPath}/order.jsp">
                 Orders
               </a>
           </li>
 
           <li>
-              <a href="${pageContext.request.contextPath}/userInfo">
-              User Info
-              </a>
-          </li>
-
-          <li>
-              <a href="${pageContext.request.contextPath}/login">
-              Login
+              <a href="${pageContext.request.contextPath}/report.jsp">
+              Report
               </a>
           </li>
 
@@ -42,5 +36,5 @@
       </ul>
       </nav>
     </div>
-  </div>
+
 </header>

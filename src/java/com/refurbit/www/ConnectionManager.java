@@ -10,43 +10,31 @@ package com.refurbit.www;
  * @author seyed
  */
 import java.sql.*;
-   import java.util.*;
+import java.util.*;
 
+public class ConnectionManager {
 
-   public class ConnectionManager {
+    static Connection con;
+    static String url;
 
-      static Connection con;
-      static String url;
-            
-      public static Connection getConnection()
-      {
-        
-         try
-         {
-            String url = "jdbc:mysql://localhost:3306/refurbit_inv?"; 
+    public static Connection getConnection() {
+
+        try {
+            String url = "jdbc:mysql://localhost:3306/refurbit_inv?";
             // assuming "DataSource" is your DataSource name
 
             Class.forName("com.mysql.jdbc.Driver");
-            
-            try
-            {            	
-               con = DriverManager.getConnection(url,"root","nbuser"); 
-                								
-          
-                 
-            }
-            
-            catch (SQLException ex)
-            {
-               ex.printStackTrace();
-            }
-         }
 
-         catch(ClassNotFoundException e)
-         {
+            try {
+                con = DriverManager.getConnection(url, "root", "Dooste,2004");
+
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } catch (ClassNotFoundException e) {
             System.out.println(e);
-         }
+        }
 
-      return con;
+        return con;
+    }
 }
-   }

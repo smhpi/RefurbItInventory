@@ -12,31 +12,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>RefurbIT Inventory Project</title>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <jsp:include page="WEB-INF/views/_head.jsp"></jsp:include>
     </head>
     <body class="container">
         <jsp:include page="WEB-INF/views/_menu.jsp"></jsp:include>
 
 
         <div class="report">
-          <h2>Inventory</h2>
-          <div>
+          <h2>Products List</h2>
+          <div class="forms">
             <form action="response.jsp">
 
-                <span style="float:left;"><strong>Select a Market:</strong></span>
-                <span style="float:left; padding-left: 5px;">
+                <p><strong>Select a Product:</strong></p>
+                <div class="row">
                     <select name="subject_id">
                          <c:forEach var="row" items="${subjects.rows}">
                     <option value="${row.subject_id}">${row.name}</option>
                     </c:forEach>
                     </select>
-                </span>
-                <div style="float:right;">
-                  <input type="submit" value="Search" class="button" name="submit"/>
+
+                    <input type="submit" value="Search" class="but-row" name="submit"/>
                 </div>
 
             </form>

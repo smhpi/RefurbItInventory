@@ -1,0 +1,22 @@
+{
+  "name": "refurbit_inventory",
+  "description": "Integrate MarketPlace Data for Refurbit.com",
+  "main": "LoginPage.jsp",
+  "authors": [
+    "poursaeid@outlook.com"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/smhpi/RefurbItInventory",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "susy": "^3.0.3",
+    "normalize-css": "normalize.css#^8.0.0",
+    "bourbon": "^5.0.0"
+  }
+}

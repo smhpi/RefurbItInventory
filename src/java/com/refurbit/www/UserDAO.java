@@ -25,7 +25,7 @@ package com.refurbit.www;
          //preparing some objects for connection 
          Statement stmt = null;    
 	
-         String username = bean.getUsername();    
+         String username = bean.getUserName();    
          String password = bean.getPassword();   
 	    
          String searchQuery =

@@ -11,7 +11,7 @@ package com.refurbit.www;
  */
 public class UserBean {
 	
-      private String username;
+      private String userName;
       private String password;
       private String firstName;
       private String lastName;
@@ -45,14 +45,16 @@ public class UserBean {
 	}
 	
 			
-      public String getUsername() {
-         return username;
+      public String getUserName() {
+         return userName;
 			}
 
-      public void setUserName(String newUsername) {
-         username = newUsername;
+      public void setUserName(String userName) {
+          this.userName = userName;
 			}
-
+      
+    
+      
 				
       public boolean isValid() {
          return valid;
