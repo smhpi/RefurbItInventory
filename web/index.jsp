@@ -5,37 +5,69 @@
     Created on : 2-Apr-2018, 11:25:02 AM
     Author     : seyed
 --%>
-<sql:query var="subjects" dataSource="jdbc/RefurbItConnectionPool">
-    SELECT subject_id, name FROM Subject
+<sql:query var="products" dataSource="jdbc/RefurbItConnectionPool">
+    SELECT SKU, Title FROM shpro
 </sql:query>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <jsp:include page="WEB-INF/views/_head.jsp"></jsp:include>
-    </head>
-    <body class="container">
+           <script>  
+                    var request=new XMLHttpRequest();  
+                    function searchInfo(){  
+                        var SKU=document.vinform.SKU.value;  
+                        var url="response.jsp?SKU="+SKU;  
+
+                        try{  
+                        request.onreadystatechange=function(){  
+                            if(request.readyState==4){  
+                            var SKU=request.responseText;  
+                            document.getElementById('mylocation').innerHTML=SKU;  
+                            }  
+                        }//end of function  
+                           request.open("GET",url,true);  
+                           request.send();  
+                        }
+                        catch(e){alert("Unable to connect to server");}  
+                    }  
+            </script>
+        </head>
+        <body class="container">
         <jsp:include page="WEB-INF/views/_menu.jsp"></jsp:include>
+            <div class="report">
+                <h2>Products List</h2>
+                <div class="forms">
+                    <form action="response.jsp">
+                        <p><strong>Select a Product:</strong></p>
+                        <div class="row">
+                            <select name="SKU">
+                            <c:forEach var="row" items="${products.rows}">
+                                <option value="${row.SKU}">${row.Title}</option>
+                            </c:forEach>
+                        </select>
+                        <input type="submit" value="Search"  name="submit"/>
+                    </div>
+                </form>
+            </div>
 
+            <div style="clear: both;" >
+                <div> <p><br></p></div>
+                        <%--
+                        <div lass="forms">
+                          <form action="search.jsp">
+                              <input type="text" name="title" class="form-control" placeholder="Search roll no..">
+                              
+                              <input type="submit" value="Search"  name="submit"/>
+                          </form>
+                        </div>
+                        --%>
+            </div>
+            <form name="vinform">  
+                    <input type="text" name="SKU" onkeyup="searchInfo()">  
+            </form>  
 
-        <div class="report">
-          <h2>Products List</h2>
-          <div class="forms">
-            <form action="response.jsp">
-
-                <p><strong>Select a Product:</strong></p>
-                <div class="row">
-                    <select name="subject_id">
-                         <c:forEach var="row" items="${subjects.rows}">
-                    <option value="${row.subject_id}">${row.name}</option>
-                    </c:forEach>
-                    </select>
-
-                    <input type="submit" value="Search" class="but-row" name="submit"/>
-                </div>
-
-            </form>
-          </div>
+            <span id="mylocation"></span> 
         </div>
         <script type="text/javascript" src="js/scripts.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
