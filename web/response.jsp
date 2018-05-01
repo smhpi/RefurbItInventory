@@ -15,21 +15,42 @@
 </sql:query>
 --%>
 <sql:query var="productQuery" dataSource="jdbc/RefurbItConnectionPool">
-    SELECT * FROM shpro,bbpro,neggpro WHERE Shpro.SKU = neggpro.SKU 
-    AND Shpro.Title LIKE ? '<sql:param value="${param.SKU}"/>%' LIMIT 50
+    SELECT * FROM shpro,bbpro,neggpro 
+       WHERE Shpro.SKU = neggpro.SKU  AND Shpro.Title LIKE ? '% <sql:param value="${param.SKU}"/> %'
+    LIMIT 50
 </sql:query>
 <c:set var="productDetails" value="${productQuery.rows[0]}"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-     <jsp:include page="WEB-INF/views/_head.jsp"></jsp:include>
-    </head>
-    <body class="container">
-        
-        
+        <jsp:include page="WEB-INF/views/_head.jsp"></jsp:include>
+        </head>
+        <body class="container">
+
+            <section>
+                <div class="dtTable">
+                    <table>
+                        <thead></thead>
+                        <tbody>
+                                <c:forEach var="row" items="${productQuery.rows}">
+                                            <tr>
+                                                <td>
+                                                    <c:out value="${row.Title}"/>
+                                                </td>
+                                                <td>
+                                                    <c:out value="${row.Quantity}"/>
+                                                </td>
+                                            </tr>
+                                        
+                                </c:forEach>
+                        </tbody>
+                </table>
+            </div>
+        </section>
         <article>
-                <section>
+            <section>
+                            
                 <p><strong>Product Details: </strong></p>
                 <p><strong>${productDetails.Title}</strong></p>
                 <p>SKU: <span> ${productDetails.SKU} </span></p>
@@ -38,7 +59,7 @@
                 <p> NewEgg.ca Quantity:<span> ${productDetails.SBS_Inventory} </span></p>
 
                 <p></p>
-                
+
             </section>
         </article>
         <%--   
@@ -76,10 +97,10 @@
                 </p>
                 <p><strong>Quantity: </strong>${productDetails.quantity}</p>
             </section> --%>
-        </article>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </article>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    </body>
+</body>
 </html>

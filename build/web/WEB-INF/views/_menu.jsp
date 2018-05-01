@@ -19,7 +19,7 @@
           </li>
 
           <li>
-              <a href="${pageContext.request.contextPath}/bestbuy.jsp">
+              <a href="${pageContext.request.contextPath}/bbajax.jsp">
               Report
               </a>
           </li>
